@@ -36,6 +36,11 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Item>
 		<Nav.Item>
+			<Link to='/profile' style={linkStyle}>
+				Profile
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
 			<Link to='/myaccount' style={linkStyle}>
 				My Account
 			</Link>

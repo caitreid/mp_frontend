@@ -14,8 +14,9 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexMangos from './components/mangos/IndexMangos'
 import Settings from './components/MyAccount/Settings'
-import LinksIndex from './components/Links/Index'
-import AppearanceIndex from './components/Appearance/Index'
+import LinksIndex from './components/Links/LinksIndex'
+import AppearanceIndex from './components/Appearance/AppearanceIndex'
+import ProfileIndex from './components/Profile/ProfileIndex'
 
 const App = () => {
 
@@ -53,7 +54,6 @@ const App = () => {
 				path='/mangos' 
 				element={ 
 					<RequireAuth user={user}>
-
 						<IndexMangos msgAlert={msgAlert} user={user} />
 					</RequireAuth>
 				}  
@@ -71,6 +71,14 @@ const App = () => {
 				element={ 
 					<RequireAuth user={user}>
 						<AppearanceIndex msgAlert={msgAlert} user={user} />
+					</RequireAuth>
+				}  
+			/>
+			<Route
+				path='/profile' 
+				element={ 
+					<RequireAuth user={user}>
+						<ProfileIndex msgAlert={msgAlert} user={user} />
 					</RequireAuth>
 				}  
 			/>

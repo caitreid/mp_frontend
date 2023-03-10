@@ -8,7 +8,7 @@ const Home = (props) => {
 			{user && (
 				<span className='navbar-text mr-2 pr-1'>Welcome, {user.email}</span>
 			)}
-			
+
 		</div>
 	)
 }
