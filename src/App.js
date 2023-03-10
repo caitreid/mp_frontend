@@ -13,6 +13,9 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexMangos from './components/mangos/IndexMangos'
+import Settings from './components/MyAccount/Settings'
+import LinksIndex from './components/Links/Index'
+import AppearanceIndex from './components/Appearance/Index'
 
 const App = () => {
 
@@ -55,15 +58,39 @@ const App = () => {
 					</RequireAuth>
 				}  
 			/>
-				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-				<Route
-					path='/sign-up'
-					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-				/>
-				<Route
-					path='/sign-in'
-					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-				/>
+			<Route
+				path='/links' 
+				element={ 
+					<RequireAuth user={user}>
+						<LinksIndex msgAlert={msgAlert} user={user} />
+					</RequireAuth>
+				}  
+			/>
+			<Route
+				path='/appearance' 
+				element={ 
+					<RequireAuth user={user}>
+						<AppearanceIndex msgAlert={msgAlert} user={user} />
+					</RequireAuth>
+				}  
+			/>
+			<Route
+				path='/myaccount' 
+				element={ 
+					<RequireAuth user={user}>
+						<Settings msgAlert={msgAlert} user={user} />
+					</RequireAuth>
+				}  
+			/>
+			<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+			<Route
+				path='/sign-up'
+				element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+			/>
+			<Route
+				path='/sign-in'
+				element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+			/>
           <Route
             path='/sign-out'
             element={
