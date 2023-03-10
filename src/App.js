@@ -12,6 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import IndexMangos from './components/mangos/IndexMangos'
 
 const App = () => {
 
@@ -43,16 +44,26 @@ const App = () => {
 		return (
 			<Fragment>
 				<Header user={user} />
+				
 				<Routes>
-					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-					<Route
-						path='/sign-up'
-						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-					/>
-					<Route
-						path='/sign-in'
-						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-					/>
+			<Route
+				path='/mangos' 
+				element={ 
+					<RequireAuth user={user}>
+
+						<IndexMangos msgAlert={msgAlert} user={user} />
+					</RequireAuth>
+				}  
+			/>
+				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+				<Route
+					path='/sign-up'
+					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+				/>
+				<Route
+					path='/sign-in'
+					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+				/>
           <Route
             path='/sign-out'
             element={
