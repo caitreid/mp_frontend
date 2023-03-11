@@ -37,26 +37,6 @@ const ProfileIndex = (props) => {
         return <p>No profile! Go add one.</p>
     }
 
-    const profileCard = null;
-
-    // if (profile) {
-
-    //     const profileCard = profile.map(item => {
-    //         // return(
-    //             <div>
-    //             {/* { console.log('profile', item)} */}
-    //                 <h2>Your Profile:</h2>
-    //                 <p>Username: {item.username}</p>
-    //                 <p>Title: {item.title}</p>
-    //                 <p>Bio: {item.bio}</p>
-    //                 <p>Visible: {item.visible ? 'true' : 'false'}</p>
-    //             </div>
-    //         // )
-            
-    //     })
-    // }
-    
-
     return(
         <div className='container-fluid p-4'>
             <h1>Profile</h1>
