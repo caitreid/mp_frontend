@@ -22,7 +22,7 @@ const ProfileIndex = (props) => {
                 })
                 setError(true)
             })
-    })
+    }, [])
 
     console.log('profile state:', profile)
 
@@ -37,23 +37,40 @@ const ProfileIndex = (props) => {
         return <p>No profile! Go add one.</p>
     }
 
-    // const profileCard = profile.map(item => {
-    //     <div>
-    //         { console.log('profile', item)}
-    //         <h2>Your Profile:</h2>
-    //         <p>Username: {item.username}</p>
-    //         <p>Title: {item.title}</p>
-    //         <p>Bio: {item.bio}</p>
-    //         <p>Visible: {item.visible ? 'true' : 'false'}</p>
-    //     </div>
-    // })
+    const profileCard = null;
+
+    // if (profile) {
+
+    //     const profileCard = profile.map(item => {
+    //         // return(
+    //             <div>
+    //             {/* { console.log('profile', item)} */}
+    //                 <h2>Your Profile:</h2>
+    //                 <p>Username: {item.username}</p>
+    //                 <p>Title: {item.title}</p>
+    //                 <p>Bio: {item.bio}</p>
+    //                 <p>Visible: {item.visible ? 'true' : 'false'}</p>
+    //             </div>
+    //         // )
+            
+    //     })
+    // }
+    
 
     return(
-        <div className='container-fluid m-4'>
+        <div className='container-fluid p-4'>
             <h1>Profile</h1>
             <Link to="create">Create Profile</Link>
 
-            {/* { profileCard } */}
+            {profile && (
+                <div className='card p-4 m-4'>
+				    <div><b>Username:</b> { profile.username } </div>
+                    <div><b>Title:</b> { profile.title } </div>
+                    <div><b>Bio:</b> { profile.bio } </div>
+                    <div><b>Visible:</b> { profile.visible ? 'true' : 'false'}</div>
+                </div>
+			)}
+            
         </div>
     )
 }
