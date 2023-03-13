@@ -10,4 +10,9 @@ button {
     border-radius: 30px !important;
     border: 1px $color-primary solid !important;
     color:black !important;
+
+    &--black{
+        background-color: black;
+        color:white;
+    }
 }

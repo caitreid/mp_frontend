@@ -56,47 +56,49 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
-            <div className='col-sm-8 col-md-6 mx-auto mt-5'>
-                <h1>Create Your Account</h1>
-                <Form onSubmit={onSignUp}>
-                    <Form.Group controlId='email' className='my-3'>
-                        <Form.Label className='uppercase'>Email address</Form.Label>
-                        <Form.Control
-                            required
-                            type='email'
-                            name='email'
-                            value={email}
-                            placeholder='Enter email'
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='password' className='my-3'>
-                        <Form.Label className='uppercase'>Password</Form.Label>
-                        <Form.Control
-                            required
-                            name='password'
-                            value={password}
-                            type='password'
-                            placeholder='Password'
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='passwordConfirmation'>
-                        <Form.Label className='uppercase'>Password Confirmation</Form.Label>
-                        <Form.Control
-                            required
-                            name='passwordConfirmation'
-                            value={passwordConfirmation}
-                            type='password'
-                            placeholder='Confirm Password'
-                            onChange={e => setPasswordConfirmation(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Button className='button' type='submit'>
-                        Submit
-                    </Button>
-                </Form>
+        <div className='auth'>
+            <div className='row'>
+                <div className='auth__form-wrapper col-sm-8 col-md-6'>
+                    <h1>Create Your Account</h1>
+                    <Form onSubmit={onSignUp}>
+                        <Form.Group controlId='email' className='my-3'>
+                            <Form.Label className='uppercase'>Email address</Form.Label>
+                            <Form.Control
+                                required
+                                type='email'
+                                name='email'
+                                value={email}
+                                placeholder='Enter email'
+                                onChange={e => setEmail(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='password' className='my-3'>
+                            <Form.Label className='uppercase'>Password</Form.Label>
+                            <Form.Control
+                                required
+                                name='password'
+                                value={password}
+                                type='password'
+                                placeholder='Password'
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='passwordConfirmation'>
+                            <Form.Label className='uppercase'>Password Confirmation</Form.Label>
+                            <Form.Control
+                                required
+                                name='passwordConfirmation'
+                                value={passwordConfirmation}
+                                type='password'
+                                placeholder='Confirm Password'
+                                onChange={e => setPasswordConfirmation(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Button className='button' type='submit'>
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
             </div>
         </div>
     )
