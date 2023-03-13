@@ -1,6 +1,21 @@
+.uppercase {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 button {
   padding: 1rem;
   border: 1px solid rgb(71, 70, 70);
+}
+
+.button {
+  margin: 1rem 0;
+  background-color: #25b9cf !important;
+  padding: 1rem 2rem !important;
+  border-radius: 30px !important;
+  border: 1px #25b9cf solid !important;
+  color: black !important;
 }
 
 .navbar {
@@ -84,11 +99,6 @@ body {
   height: 3rem;
   margin: 0 1rem 0 0;
   padding: 1rem;
-}
-.home .button {
-  background-color: #25b9cf;
-  padding: 1rem;
-  border-radius: 25px;
 }
 .home .black-cta {
   background-color: black;

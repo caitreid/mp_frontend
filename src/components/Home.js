@@ -1,5 +1,8 @@
+import { Container } from "react-bootstrap"
 import ProfileIndex from "./Profile/ProfileIndex"
-import Footer from "./shared/Footer"
+
+// import { Canvas } from './Container/Canvas'
+import { Fragment } from "react"
 
 
 const Home = (props) => {
@@ -10,7 +13,10 @@ const Home = (props) => {
 		<div>
 			<div className='container-fluid home'>
 				{user && (
-					<span className='navbar-text mr-2 pr-1'>Welcome, {user.email}</span>
+					<Fragment>
+						<span className='navbar-text mr-2 pr-1'>Welcome, {user.email}</span>
+						{/* <Canvas /> */}
+					</Fragment>
 				)}
 				{!user && (
 					<div className="row">

@@ -57,11 +57,11 @@ const SignUp = (props) => {
 
     return (
         <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign Up</h3>
+            <div className='col-sm-8 col-md-6 mx-auto mt-5'>
+                <h1>Create Your Account</h1>
                 <Form onSubmit={onSignUp}>
-                    <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
+                    <Form.Group controlId='email' className='my-3'>
+                        <Form.Label className='uppercase'>Email address</Form.Label>
                         <Form.Control
                             required
                             type='email'
@@ -71,8 +71,8 @@ const SignUp = (props) => {
                             onChange={e => setEmail(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
+                    <Form.Group controlId='password' className='my-3'>
+                        <Form.Label className='uppercase'>Password</Form.Label>
                         <Form.Control
                             required
                             name='password'
@@ -83,7 +83,7 @@ const SignUp = (props) => {
                         />
                     </Form.Group>
                     <Form.Group controlId='passwordConfirmation'>
-                        <Form.Label>Password Confirmation</Form.Label>
+                        <Form.Label className='uppercase'>Password Confirmation</Form.Label>
                         <Form.Control
                             required
                             name='passwordConfirmation'
@@ -93,7 +93,7 @@ const SignUp = (props) => {
                             onChange={e => setPasswordConfirmation(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button className='button' type='submit'>
                         Submit
                     </Button>
                 </Form>
