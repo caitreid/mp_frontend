@@ -56,8 +56,8 @@ const SignIn = (props) => {
 
     return (
         <div className='row'>
-            <div className='col-sm-8 col-md-6 mx-auto mt-5'>
-                <h3>Sign In</h3>
+            <div className='col-md-6 mx-auto mt-5'>
+                <h1>Sign In</h1>
                 <Form onSubmit={onSignIn}>
                     <Form.Group controlId='email' className='my-3'>
                         <Form.Label className='uppercase'>Email address</Form.Label>
@@ -86,6 +86,7 @@ const SignIn = (props) => {
                     </Button>
                 </Form>
             </div>
+            
         </div>
     )
 }

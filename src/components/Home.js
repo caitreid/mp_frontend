@@ -32,7 +32,9 @@ const Home = (props) => {
 						</div>
 					</div>
 					<div className="home__image col-lg-6 my-4">
-						<img className="image" src="screenshot.png"/>
+						<div className="image">
+							<img src="screenshot.png"/>
+						</div>
 					</div>
 					<div className='black-cta'>
 						<p>Start with a link. Build Your Brand.</p>

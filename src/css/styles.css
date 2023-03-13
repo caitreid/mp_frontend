@@ -89,10 +89,18 @@ body {
   display: flex;
   justify-content: center;
   padding: 2rem;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
 }
 .home__image .image {
   max-width: 50%;
   transform: rotate(9deg);
+  width: 100%;
+}
+.home__image .image img {
+  width: inherit;
+  border-radius: 30px;
 }
 .home input {
   border: none;

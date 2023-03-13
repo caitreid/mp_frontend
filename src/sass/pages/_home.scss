@@ -26,10 +26,18 @@ body {
         display: flex;
         justify-content: center;
         padding: 2rem;
+        margin-top: 4rem;
+        display:flex;
+        align-items: center;
         .image {
             max-width: 50%;
             transform: rotate(9deg);
+            width:100%;
             
+            img{
+                width: inherit;
+                border-radius: 30px;
+            }
         }
     }
     input {
