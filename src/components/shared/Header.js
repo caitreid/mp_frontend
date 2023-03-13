@@ -3,28 +3,12 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
-    color: 'white',
+    color: 'black',
     textDecoration: 'none',
 	paddingRight: '1rem',
-	// alignItems: 'flex-end'
 }
 const authenticatedOptions = (
 	<>
-		{/* <Nav.Item>
-			<Link to='change-password' style={linkStyle}>
-				Change Password
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='sign-out' style={linkStyle}>
-				Sign Out
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to="mangos" style={linkStyle}>
-				Mangos
-			</Link>
-		</Nav.Item> */}
 		<Nav.Item>
 			<Link to='/links' style={linkStyle}>
 				Links
@@ -70,10 +54,10 @@ const unauthenticatedOptions = (
 // )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand className='m-4'>
+	<Navbar expand='md'>
+		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
-                more please
+                moreplease.link
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />

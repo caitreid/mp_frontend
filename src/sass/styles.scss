@@ -1,0 +1,20 @@
+// abstracts
+// @import 'variables/breakpoints';
+// @import 'variables/typography';
+@import 'variables/color';
+
+// components
+// @import 'components/example';
+@import 'components/button';
+// @import 'components/card';
+
+// components
+@import 'components/navigation';
+@import 'components/image';
+@import 'components/footer';
+
+//pages
+@import 'pages/home';
+
+//abstracts
+@import 'abstracts/normalize';

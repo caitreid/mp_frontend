@@ -1,0 +1,30 @@
+
+body {
+    padding: 2rem;
+    font-family: $font-family;
+
+    button{
+        background-color: $color-primary;
+    }
+
+    .section{
+        margin: 2rem 0;
+    }
+}
+
+// using mixins
+.theme {
+    &--one{
+        @include theme
+    }
+    &--two{
+        @include theme($color-secondary)
+    }
+    &--three{
+        @include theme($color-tertiary)
+    }
+}
+
+footer {
+    color: $color-dark-secondary;
+}

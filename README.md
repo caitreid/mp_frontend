@@ -87,3 +87,9 @@ As a user I want to:
 In tackling this project, really want to focus on user experience while meeting all the basic requirements outlined above. I plan on usering testing the app for pain points with friends and family to try to see what could be improved based on their (unguided) navigation of the app. The app should be good enough that friends would want to use it for their own social media profiles.
 
 Stretch goal would be to have paid features that are hidden behind a paywall. I would use Stripe or another payment app to integrate users as "premium" subscribers and actually get $$ for this service.
+
+## Sass Script 
+
+Run from top directory
+
+`sass --watch src/sass/styles.scss:src/css/styles.css`

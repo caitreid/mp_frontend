@@ -17,14 +17,19 @@ import Settings from './components/MyAccount/Settings'
 import LinksIndex from './components/Links/LinksIndex'
 import AppearanceIndex from './components/Appearance/AppearanceIndex'
 import ProfileIndex from './components/Profile/ProfileIndex'
+import CreateProfile from './components/Profile/CreateProfile'
+import UpdateProfile from './components/Profile/UpdateProfile'
+import Footer from './components/shared/Footer'
 
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [profile, setProfile] = useState(null)
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
+
   const clearUser = () => {
     console.log('clear user ran')
     setUser(null)
@@ -48,72 +53,85 @@ const App = () => {
 		return (
 			<Fragment>
 				<Header user={user} />
-				
 				<Routes>
-			<Route
-				path='/mangos' 
-				element={ 
+				<Route
+					path='/mangos' 
+					element={ 
+						<RequireAuth user={user}>
+							<IndexMangos msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}  
+				/>
+				<Route
+					path='/links' 
+					element={ 
+						<RequireAuth user={user}>
+							<LinksIndex msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}  
+				/>
+				<Route
+					path='/appearance' 
+					element={ 
+						<RequireAuth user={user}>
+							<AppearanceIndex msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}  
+				/>
+				<Route
+					path='/profile' 
+					element={ 
+						<RequireAuth user={user}>
+							<ProfileIndex msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}  
+				/>
+				<Route
+					path='/profile/create'
+					element={
 					<RequireAuth user={user}>
-						<IndexMangos msgAlert={msgAlert} user={user} />
-					</RequireAuth>
-				}  
-			/>
-			<Route
-				path='/links' 
-				element={ 
+						<CreateProfile msgAlert={msgAlert} user={user} />
+					</RequireAuth>}
+				/>
+				<Route
+					path='/profile/update'
+					element={
 					<RequireAuth user={user}>
-						<LinksIndex msgAlert={msgAlert} user={user} />
-					</RequireAuth>
-				}  
-			/>
-			<Route
-				path='/appearance' 
-				element={ 
+						<UpdateProfile msgAlert={msgAlert} user={user} profile={profile}/>
+					</RequireAuth>}
+				/>
+				<Route
+					path='/myaccount' 
+					element={ 
+						<RequireAuth user={user}>
+							<Settings msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}  
+				/>
+				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+				<Route
+					path='/sign-up'
+					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+				/>
+				<Route
+					path='/sign-in'
+					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+				/>
+				<Route
+					path='/sign-out'
+					element={
 					<RequireAuth user={user}>
-						<AppearanceIndex msgAlert={msgAlert} user={user} />
+						<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
 					</RequireAuth>
-				}  
-			/>
-			<Route
-				path='/profile' 
-				element={ 
+					}
+				/>
+				<Route
+					path='/change-password'
+					element={
 					<RequireAuth user={user}>
-						<ProfileIndex msgAlert={msgAlert} user={user} />
-					</RequireAuth>
-				}  
-			/>
-			<Route
-				path='/myaccount' 
-				element={ 
-					<RequireAuth user={user}>
-						<Settings msgAlert={msgAlert} user={user} />
-					</RequireAuth>
-				}  
-			/>
-			<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-			<Route
-				path='/sign-up'
-				element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-			/>
-			<Route
-				path='/sign-in'
-				element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-			/>
-          <Route
-            path='/sign-out'
-            element={
-              <RequireAuth user={user}>
-                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path='/change-password'
-            element={
-              <RequireAuth user={user}>
-                <ChangePassword msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          />
+						<ChangePassword msgAlert={msgAlert} user={user} />
+					</RequireAuth>}
+				/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
@@ -125,6 +143,7 @@ const App = () => {
 						deleteAlert={deleteAlert}
 					/>
 				))}
+				{/* <Footer/> */}
 			</Fragment>
 		)
 }

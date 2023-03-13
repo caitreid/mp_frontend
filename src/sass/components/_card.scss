@@ -1,0 +1,17 @@
+%card {
+    background-color: $color-tertiary;
+    border: $border;
+    padding: 1rem;
+    height: 15rem;
+    width: 100%;
+    max-width: 15rem;
+    display: flex;
+
+    button {
+        align-self: end;
+    }
+}
+
+.card {
+    @extend %card;
+}
