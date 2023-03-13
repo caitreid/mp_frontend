@@ -8,9 +8,9 @@ const Footer = () => {
 
     return(
         <div className='footer'>
-            <br></br>
-            <p>Start with a link. Build Your Brand.</p>
-            <h2><span className='white'>moreplease.link/</span><span className='grey'>yourname</span></h2>
+            <div className='divider'></div>
+            <a href="/">moreplease.link</a>
+            <p>made with love in nyc</p>
         </div>
     )
 }
