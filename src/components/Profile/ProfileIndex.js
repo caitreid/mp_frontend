@@ -10,11 +10,6 @@ const ProfileIndex = (props) => {
     const [profile, setProfile] = useState(null)
     const [error, setError] = useState(false)
 
-    // const location = useLocation()
-    // const { from } = location.state
-
-    // console.log('location', location)
-
     useEffect(() => {
 
         getProfile(user)
@@ -29,23 +24,38 @@ const ProfileIndex = (props) => {
                 })
                 
             })
-    }, [])
+    })
 
     console.log('profile state:', profile)
     console.log('error state', error)
 
     if (error) {
-        return <p>Error!</p>
+        
+        return ( 
+
+            <p>Error!</p>
+        )
     }
 
-    if (!profile || profile === null ) {
-        <p>Loading...</p>
-    } else if (profile.length === 0 || profile === null ) {
+    if (profile == null ) {
+        
+        return ( 
 
-        return <p>No profile! Go add one.</p>
+            <p>Loading...</p>
+        )
+
+    } else if (profile.length === 0 ) {
+
+        return ( 
+            <>
+                <p>No profile! Go add one.</p>
+                <p><a href="create">Add a Profile</a></p>
+            </>
+            
+        )
     }
 
-
+    
     return(
         <div className='container-fluid p-4'>
             <h1>Profile</h1>
@@ -66,13 +76,12 @@ const ProfileIndex = (props) => {
                 </div>
 
 			)}
-            { profile === null && (
+            { profile == null && (
                 <Link to={{
                     pathname: "create"
                 }}>Create Profile</Link>
             )}
-            
-            
+
         </div>
     )
 }

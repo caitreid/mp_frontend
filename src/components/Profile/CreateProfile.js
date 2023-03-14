@@ -53,7 +53,7 @@ const CreateProfile = (props) => {
                 [updatedName] : updatedValue
             }
             
-            console.log('the profile:', updatedProfile)
+            console.log('the updated profile:', updatedProfile)
 
             return {
                 ...prevProfile, ...updatedProfile

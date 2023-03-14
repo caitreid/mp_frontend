@@ -4,6 +4,8 @@ import ProfileIndex from "./Profile/ProfileIndex"
 // import { Canvas } from './Container/Canvas'
 import { Fragment } from "react"
 import Footer from "./shared/Footer"
+import Canvas from './Canvas/Canvas'
+import Header from "./shared/Header"
 
 const Home = (props) => {
 	const { msgAlert, user } = props
@@ -13,11 +15,14 @@ const Home = (props) => {
 		<div>
 				{user && (
 					<div className='container-fluid home'>
-						<span className='navbar-text mr-2 pr-1'>Welcome, {user.email}</span>
+						<Header user={user} />
+						<Canvas user={user} />
+						{/* <span className='navbar-text mr-2 pr-1'>Welcome, {user.email}</span> */}
 					</div>
 				)}
 				{!user && (
 					<>
+					<Header user={user} />
 						<div className='container-fluid home'>
 							<div className="row">
 							<div className="home__intro col-lg-6">

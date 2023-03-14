@@ -10,6 +10,11 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item>
+			<Link to='/profile' style={linkStyle}>
+				Profile
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
 			<Link to='/links' style={linkStyle}>
 				Links
 			</Link>
@@ -17,11 +22,6 @@ const authenticatedOptions = (
 		<Nav.Item>
 			<Link to='/appearance' style={linkStyle}>
 				Appearance
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='/profile' style={linkStyle}>
-				Profile
 			</Link>
 		</Nav.Item>
 		<Nav.Item>
@@ -35,10 +35,10 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
 	<div>
         <Nav.Item>
-		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
+		    <Link to='/sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
         <Nav.Item>
-		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+		    <Link to='/sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
 	</div>
 )

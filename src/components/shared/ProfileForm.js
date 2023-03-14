@@ -9,14 +9,14 @@ const ProfileForm = (props) => {
     // and in this case, we'll add a custom heading
     const { profile, handleChange, handleSubmit, heading } = props
 
-    console.log('profile props', profile)
+    // console.log('ProfileForm props: ', profile)
 
     return (
         <Container className="justify-content-center">
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="m-2">
-                    <Form.Label>Title</Form.Label>
+                    <Form.Label className='uppercase'>Title</Form.Label>
                     <Form.Control 
                         placeholder="Artist / Entrepreneur"
                         name="title"
@@ -26,7 +26,7 @@ const ProfileForm = (props) => {
                     />
                 </Form.Group>
                 <Form.Group className="m-2">
-                    <Form.Label>Bio:</Form.Label>
+                    <Form.Label className='uppercase'>Bio:</Form.Label>
                     <Form.Control 
                         placeholder="Based in Los Angeles"
                         name="bio"
@@ -37,7 +37,7 @@ const ProfileForm = (props) => {
                 </Form.Group>
                 
                 <Form.Group className="m-2">
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label className='uppercase'>Username</Form.Label>
                     <Form.Control 
                         // type="number"
                         placeholder="my-username"
@@ -55,7 +55,7 @@ const ProfileForm = (props) => {
                         onChange={ handleChange }
                     />
                 </Form.Group>
-                <Button className="m-2" type="submit">Submit</Button>
+                <Button className="my-2 button" type="submit">Submit</Button>
             </Form>
         </Container>
     )

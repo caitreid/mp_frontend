@@ -1,6 +1,6 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useState, Fragment, useEffect } from 'react'
+import { Route, Routes, useParams } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
@@ -13,27 +13,31 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexMangos from './components/mangos/IndexMangos'
-import Settings from './components/MyAccount/Settings'
+import Settings from './components/Account/Settings'
 import LinksIndex from './components/Links/LinksIndex'
 import AppearanceIndex from './components/Appearance/AppearanceIndex'
 import ProfileIndex from './components/Profile/ProfileIndex'
 import CreateProfile from './components/Profile/CreateProfile'
 import UpdateProfile from './components/Profile/UpdateProfile'
 import Footer from './components/shared/Footer'
+import { getProfile } from './api/profile'
+import PreviewContainer from './components/Canvas/PreviewContainer'
 
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
   const [profile, setProfile] = useState(null)
+  const [error, setError] = useState(null)
 
-  console.log('user in app', user)
-  console.log('message alerts', msgAlerts)
+	//   console.log('profile in APP', profile)
+	//   console.log('user in app', user)
+	//   console.log('message alerts', msgAlerts)
 
-  const clearUser = () => {
-    console.log('clear user ran')
-    setUser(null)
-  }
+	const clearUser = () => {
+		console.log('clear user ran')
+		setUser(null)
+	}
 
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
@@ -52,8 +56,14 @@ const App = () => {
 
 		return (
 			<Fragment>
-				<Header user={user} />
+				
 				<Routes>
+
+				{/* <Route 
+					path=":username" element={<PreviewContainer />}
+				/> */}
+				{/* <Route path="/caitreid" element={ <PreviewContainer />} /> */}
+				
 				<Route
 					path='/mangos' 
 					element={ 
@@ -111,11 +121,11 @@ const App = () => {
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route
 					path='/sign-up'
-					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+					element={<SignUp msgAlert={msgAlert} user={user} setUser={setUser} />}
 				/>
 				<Route
 					path='/sign-in'
-					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+					element={<SignIn msgAlert={msgAlert} user={user} setUser={setUser} />}
 				/>
 				<Route
 					path='/sign-out'
