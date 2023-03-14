@@ -1,9 +1,9 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const getProfile = (user) => {
+export const getTheme = (user) => {
     return axios({
-      url: `${apiUrl}/profile/`,
+      url: `${apiUrl}/theme/`,
       method: 'GET',
       headers: {
           Authorization: `Token ${user.token}`
@@ -11,30 +11,30 @@ export const getProfile = (user) => {
   })
 }
 
-export const createProfile = (user, newProfile) => {
+export const createTheme = (user, newTheme) => {
     console.log('this is the user', user)
-    console.log('this is the newProfile', newProfile)
+    console.log('this is the newTheme', newTheme)
     axios({
-      url: `${apiUrl}/profile/`,
+      url: `${apiUrl}/theme/`,
       method: 'POST',
       headers: {
           Authorization: `Token ${user.token}`
       },
-      data: { profile: newProfile }
+      data: { theme: newTheme }
     })
 }
 
 
-export const updateProfile = (user, updatedProfile) => {
+export const updateTheme = (user, updatedTheme) => {
     console.log('this is user', user)
-    console.log('this is updated profile', updateProfile)
+    console.log('this is updated theme', updateTheme)
     return axios({
-        url: `${apiUrl}/profile/`,
+        url: `${apiUrl}/theme/${updateTheme.id}`,
         method: 'PATCH',
         headers: {
             // Authorization: `Token token=${user.token}`
             Authorization: `Token ${user.token}`
         },
-        data: { profile: updatedProfile }
+        data: { theme: updatedTheme }
     })
 }
