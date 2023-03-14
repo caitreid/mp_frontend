@@ -1,3 +1,4 @@
+import React from "react"
 import { Container } from "react-bootstrap"
 import ProfileIndex from "./Profile/ProfileIndex"
 
@@ -15,7 +16,7 @@ const Home = (props) => {
 		<div>
 				{user && (
 					<div className='container-fluid home'>
-						<Header user={user} />
+						{/* <Header user={user} /> */}
 						<Canvas user={user} />
 						{/* <span className='navbar-text mr-2 pr-1'>Welcome, {user.email}</span> */}
 					</div>

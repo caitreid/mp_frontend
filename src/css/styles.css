@@ -122,6 +122,13 @@ form input[type=checkbox] {
   margin: 3rem;
 }
 
+.profile__create {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
 body {
   background-color: rgb(228, 228, 228) !important;
 }

@@ -14,7 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexMangos from './components/mangos/IndexMangos'
 import Settings from './components/Account/Settings'
-import LinksIndex from './components/Links/LinksIndex'
+
 import AppearanceIndex from './components/Appearance/AppearanceIndex'
 import ProfileIndex from './components/Profile/ProfileIndex'
 import CreateProfile from './components/Profile/CreateProfile'
@@ -22,6 +22,7 @@ import UpdateProfile from './components/Profile/UpdateProfile'
 import Footer from './components/shared/Footer'
 import { getProfile } from './api/profile'
 import PreviewContainer from './components/Canvas/PreviewContainer'
+import Canvas from './components/Canvas/Canvas'
 
 const App = () => {
 
@@ -30,9 +31,6 @@ const App = () => {
   const [profile, setProfile] = useState(null)
   const [error, setError] = useState(null)
 
-	//   console.log('profile in APP', profile)
-	//   console.log('user in app', user)
-	//   console.log('message alerts', msgAlerts)
 
 	const clearUser = () => {
 		console.log('clear user ran')
@@ -58,25 +56,12 @@ const App = () => {
 			<Fragment>
 				
 				<Routes>
-
-				{/* <Route 
-					path=":username" element={<PreviewContainer />}
-				/> */}
-				{/* <Route path="/caitreid" element={ <PreviewContainer />} /> */}
 				
 				<Route
 					path='/mangos' 
 					element={ 
 						<RequireAuth user={user}>
 							<IndexMangos msgAlert={msgAlert} user={user} />
-						</RequireAuth>
-					}  
-				/>
-				<Route
-					path='/links' 
-					element={ 
-						<RequireAuth user={user}>
-							<LinksIndex msgAlert={msgAlert} user={user} />
 						</RequireAuth>
 					}  
 				/>
@@ -92,7 +77,15 @@ const App = () => {
 					path='/profile' 
 					element={ 
 						<RequireAuth user={user}>
-							<ProfileIndex msgAlert={msgAlert} user={user} />
+							<ProfileIndex msgAlert={msgAlert} user={user} profile={profile} />
+						</RequireAuth>
+					}  
+				/>
+				<Route
+					path='/canvas' 
+					element={ 
+						<RequireAuth user={user}>
+							<Canvas msgAlert={msgAlert} user={user} />
 						</RequireAuth>
 					}  
 				/>
@@ -153,7 +146,7 @@ const App = () => {
 						deleteAlert={deleteAlert}
 					/>
 				))}
-				{/* <Footer/> */}
+
 			</Fragment>
 		)
 }

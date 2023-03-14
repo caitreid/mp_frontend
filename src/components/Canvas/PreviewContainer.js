@@ -10,7 +10,15 @@ const PreviewContainer = (props) => {
     let { username } = useParams();
 
     // console.log('params:', username )
-
+    if (!profile) {
+        return (
+            <Fragment>
+                <div className="preview__profile-picture"></div>
+                <div>Title </div>
+                <div>Bio</div>
+            </Fragment>
+        )
+    }
     return (
         <Fragment>
             <div className="preview__profile-picture"></div>

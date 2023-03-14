@@ -68,7 +68,7 @@ const CreateProfile = (props) => {
         createProfile(user, profile)
             // first we'll nav to the show page
             // .then(res => { navigate(`/profile/${res.data.profile.id}`)})
-            .then(() => { navigate(`/profile/`)})
+            .then(() => { navigate(`/`)})
             // we'll also send a success message
             .then(() => {
                 msgAlert({
@@ -87,7 +87,7 @@ const CreateProfile = (props) => {
     }
 
     return (
-        <div className='container-fluid m-4'>
+        <div className='profile__create container-fluid'>
             <ProfileForm 
                 profile={profile}
                 handleChange={onChange}

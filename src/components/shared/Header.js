@@ -1,13 +1,17 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+
+
+
 const linkStyle = {
     color: 'black',
     textDecoration: 'none',
 	paddingRight: '1rem',
 }
 const authenticatedOptions = (
+
 	<>
 		<Nav.Item>
 			<Link to='/profile' style={linkStyle}>
@@ -15,7 +19,8 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Item>
 		<Nav.Item>
-			<Link to='/links' style={linkStyle}>
+			
+			<Link  style={linkStyle}>
 				Links
 			</Link>
 		</Nav.Item>
@@ -43,28 +48,18 @@ const unauthenticatedOptions = (
 	</div>
 )
 
-// const alwaysOptions = (
-// 	<>
-// 		<Nav.Item>
-// 			<Link to='/' style={linkStyle}>
-// 				Home
-// 			</Link>
-// 		</Nav.Item>
-// 	</>
-// )
 
-const Header = ({ user }) => (
+const Header = ({ user, setLinkShow }) => (
+	
 	<Navbar expand='md'>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
+            <Link to='/canvas' style={linkStyle}>
                 moreplease.link
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto' style={linkStyle}>
-				
-				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>

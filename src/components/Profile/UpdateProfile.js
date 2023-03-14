@@ -50,7 +50,7 @@ const UpdateProfileObj = (props) => {
         e.preventDefault()
 
         updateProfile(user, profile)
-        .then(() => { navigate(`/profile`)})
+        .then(() => { navigate(`/canvas`)})
             // first we'll handle closing the modal
             // .then(() => handleClose())
             // we'll also send a success message

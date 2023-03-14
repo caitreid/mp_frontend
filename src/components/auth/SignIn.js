@@ -33,7 +33,7 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/'))
+			.then(() => navigate('/canvas'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')
