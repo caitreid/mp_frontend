@@ -7,6 +7,7 @@ $color-dark-secondary: lighten($color-dark-primary, 10%);
 
 $border: 1px solid $color-dark-primary;
 
+$color-body:rgb(228, 228, 228);
 
 // Mixin example
 @mixin theme($theme: $color-primary, $theme-two: white) {

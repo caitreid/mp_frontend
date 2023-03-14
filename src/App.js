@@ -143,7 +143,7 @@ const App = () => {
 						deleteAlert={deleteAlert}
 					/>
 				))}
-				<Footer/>
+				{/* <Footer/> */}
 			</Fragment>
 		)
 }

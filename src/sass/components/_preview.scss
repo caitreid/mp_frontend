@@ -1,0 +1,33 @@
+.preview {
+    border-left:1px grey solid;
+    min-height: 35rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    &__phone {
+        margin: 2rem 0;
+        align-items: center;
+        align-self: center;
+        background-color: white;
+        min-height: 30rem;
+        width: 15rem;
+        border-radius: 30px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    &__profile{
+        display: flex;
+        &-name {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        &-picture{
+            background-color: $color-primary;
+            display: block;
+            height:6rem;
+            width:6rem;
+            border-radius: 100px;
+            margin: 2rem auto 1rem;
+        }
+    }
+}

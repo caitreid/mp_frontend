@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(202, 202, 202) !important;
+    background-color: $color-body !important;
 }
 
 
@@ -33,6 +33,7 @@ body {
             max-width: 50%;
             transform: rotate(9deg);
             width:100%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             
             img{
                 width: inherit;
