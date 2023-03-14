@@ -13,7 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexMangos from './components/mangos/IndexMangos'
-import Settings from './components/Account/Settings'
+import Settings from './components/Canvas/Settings'
 
 import AppearanceIndex from './components/Appearance/AppearanceIndex'
 import ProfileIndex from './components/Profile/ProfileIndex'

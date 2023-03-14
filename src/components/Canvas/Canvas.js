@@ -10,6 +10,11 @@ import LoadingScreen from "../shared/LoadingScreen";
 import CreateProfile from "../Profile/CreateProfile";
 import CanvasNav from "./CanvasNav";
 import LinksWorkspace from "./LinksWorkspace";
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import { Link } from 'react-router-dom'
+import AppearanceWorkspace from "./AppearanceWorkspace";
+import Settings from "./Settings";
 
 const Canvas = (props) => {
 
@@ -18,19 +23,29 @@ const Canvas = (props) => {
     const [error, setError] = useState(false)
     const [profile, setProfile] = useState(null)
 
-    // const [linkShow, setlinkShow] = useState(false)
+    const [linkShow, setlinkShow] = useState(false)
+    const [profileShow, setProfileShow] = useState(true)
+    const [appearanceShow, setAppearanceShow] = useState(false)
+    const [accountShow, setAccountShow] = useState(false)
 
-    // console.log('linkShow', linkShow)
+    console.log('linkShow', linkShow)
+
+    const linkStyle = {
+        color: 'black',
+        textDecoration: 'none',
+        paddingRight: '1rem',
+    }
+    
     
 
     useEffect(() => {
 
         getProfile(user)
             .then(res => setProfile(res.data.profile))
-            .then( res => console.log('res.status', res.status))
+            // .then( res => console.log('res.status', res.status))
             .catch(err => {
                 
-                console.log('err', err)
+                console.log('err ------------- \n', err)
                 setError(true)
                 // msgAlert({
                 //     heading: 'Error getting profile',
@@ -43,38 +58,106 @@ const Canvas = (props) => {
     console.log('user', user)
     console.log('error', error)
 
-    // const onLinkClick = () => {
+    const onLinkClick = () => {
 
-    //     setlinkShow(true)
+        setlinkShow(true)
+        setProfileShow(false)
+        setAppearanceShow(false)
+        setAccountShow(false)
 
-    //     console.log('linkshow', linkShow)
-    // }
-    
+        console.log('linkshow', linkShow)
+    }
+    const onProfileClick = () => {
+
+        setlinkShow(false)
+        setProfileShow(true)
+        setAppearanceShow(false)
+        setAccountShow(false)
+    }
+    const onAppearanceClick = () => {
+
+        setlinkShow(false)
+        setProfileShow(false)
+        setAppearanceShow(true)
+        setAccountShow(false)
+    }
+    const onAccountClick = () => {
+        setlinkShow(false)
+        setProfileShow(false)
+        setAppearanceShow(false)
+        setAccountShow(true)
+    }
     
 
     // if (error) {
     //     return <p>Error</p>
     // }
     if (!profile) {
-        return <CreateProfile user={user} />
+        // return <CreateProfile user={user} />
+        return <LoadingScreen />
     }
 
     return (
         <Fragment>
             {/* <Header user={user}/> */}
-            <CanvasNav user={user}  />
+            <Navbar expand='md'>
+                <Navbar.Brand>
+                    <Link to='/canvas' style={linkStyle}>
+                        moreplease.link
+                    </Link>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls='basic-navbar-nav' />
+                <Navbar.Collapse id='basic-navbar-nav'>
+                    <Nav className='ml-auto' style={linkStyle}>
+                        <Nav.Item>
+                            <Link onClick={onProfileClick} style={linkStyle}>
+                                Profile
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            
+                            <Link onClick={onLinkClick} style={linkStyle}>
+                                Links
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Link onClick={onAppearanceClick} style={linkStyle}>
+                                Appearance
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Link onClick={onAccountClick} style={linkStyle}>
+                                My Account
+                            </Link>
+                        </Nav.Item>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
             <div className="canvas container-fluid">
                 <div className="row">
-                    <ProfileWorkspace user={user} profile={profile} msgAlert={msgAlert}/>
-
+                    <div className="col-md-6">
+                        { !profile ?
+                            <CreateProfile user={user} /> : null
+                        }
+                        { profileShow ?
+                            <ProfileWorkspace 
+                                user={user} 
+                                profile={profile} 
+                                msgAlert={msgAlert}
+                                show={profileShow}
+                            /> : null }
+                        { linkShow ? <LinksWorkspace />  : null}
+                        { appearanceShow ? <AppearanceWorkspace /> : null }
+                        { accountShow ? <Settings /> : null}
+                    </div>
                     <div className="preview col-md-6">       
                         <div className="preview__phone">
                             <PreviewContainer profile={profile} msgAlert={msgAlert}/>
 
-                            <LinksWorkspace />
+                            
                             {/* <PreviewContainer /> */}
                         </div>
-                        {/* <a href={`/${ profile.username}`}>moreplease.link/{ profile.username}</a> */}
+                        <a href={`/${ profile.username}`}>moreplease.link/{ profile.username}</a>
                     </div>
                 </div>
                 

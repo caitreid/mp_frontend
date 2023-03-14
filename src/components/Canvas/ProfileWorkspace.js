@@ -11,7 +11,7 @@ const ProfileWorkspace = (props) => {
     return (
         <Fragment>
             {/* <hr></hr> */}
-            <div className="col-md-6">
+            {/* <div className="col-md-6"> */}
                 {/* <h2>Profile Workspace</h2> */}
                 {/* <div className='card p-4 m-4'>
                     <div><b>Username:</b> { profile.username } </div>
@@ -26,7 +26,7 @@ const ProfileWorkspace = (props) => {
                     onSubmit={onSubmit} 
                     msgAlert={msgAlert} 
                 />
-            </div>         
+            {/* </div>          */}
         </Fragment>
     )
 }
