@@ -71,17 +71,19 @@ const CreateProfile = (props) => {
             .then(() => { navigate(`/canvas`)})
             // we'll also send a success message
             .then(() => {
-                msgAlert({
-                    heading: 'Profile Created',
-                    variant: 'success'
-                })
+                console.log('successfully created profile')
+                // msgAlert({
+                //     heading: 'Profile Created',
+                //     variant: 'success'
+                // })
             })
             // if there is an error, tell the user about it
             .catch(() => {
-                msgAlert({
-                    heading: 'Failed to create profile',
-                    variant: 'danger'
-                })
+                console.log('error in creating profile')
+                // msgAlert({
+                //     heading: 'Failed to create profile',
+                //     variant: 'danger'
+                // })
             })
         // console.log('profile', profile)
     }

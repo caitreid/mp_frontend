@@ -14,7 +14,7 @@ export const getAllLinks = (user) => {
 export const createLink = (user, newLink) => {
     console.log('\n this is the user', user)
     console.log('this is the newLink', newLink)
-    axios({
+    return axios({
       url: `${apiUrl}/links/`,
       method: 'POST',
       headers: {

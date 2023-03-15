@@ -14,7 +14,7 @@ export const getTheme = (user) => {
 export const createTheme = (user, newTheme) => {
     console.log('this is the user', user)
     console.log('this is the newTheme', newTheme)
-    axios({
+    return axios({
       url: `${apiUrl}/theme/`,
       method: 'POST',
       headers: {

@@ -60,28 +60,23 @@ const CreateLink = (props) => {
         e.preventDefault()
 
         createLink(user, link)
-            // .then(() => { navigate(`/canvas`)})
-            // we'll also send a success message
+
             .then(() => {
-                msgAlert({
-                    heading: 'Link Created',
-                    variant: 'success'
-                })
+                console.log('link created')
+
             })
             // if there is an error, tell the user about it
             .catch(() => {
-                msgAlert({
-                    heading: 'Failed to create link',
-                    variant: 'danger'
-                })
+                console.log('error creating link')
+
             })
-        // console.log('link', link)
     }
 
     return (
         <div className='link__create container-fluid'>
             <div className='card my-4'>
                 <LinkForm 
+                    user={user}
                     link={link}
                     handleChange={onChange}
                     handleSubmit={onSubmit}

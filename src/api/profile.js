@@ -14,7 +14,7 @@ export const getProfile = (user) => {
 export const createProfile = (user, newProfile) => {
     console.log('this is the user', user)
     console.log('this is the newProfile', newProfile)
-    axios({
+    return axios({
       url: `${apiUrl}/profiles/`,
       method: 'POST',
       headers: {

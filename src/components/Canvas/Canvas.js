@@ -11,9 +11,11 @@ import { Link } from 'react-router-dom'
 import AppearanceWorkspace from "./AppearanceWorkspace";
 import Settings from "./Settings";
 import { getAllLinks } from "../../api/link";
+import { useNavigate } from "react-router-dom";
 
 const Canvas = (props) => {
 
+    const navigate = useNavigate()
     const { msgAlert, user } = props
     const [error, setError] = useState(false)
     
@@ -102,10 +104,6 @@ const Canvas = (props) => {
     //     return <p>Error</p>
     // }
 
-    // if (!profile) {
-
-    //     return <LoadingScreen />
-    // }
 
 
     return (
@@ -149,13 +147,12 @@ const Canvas = (props) => {
                         { !profile 
                             ?
                             <>
-                                <LoadingScreen/>
-                                <CreateProfile user={user} /> 
+                                <CreateProfile user={user} profile={profile}/> 
                             </>
                             : 
                             null
                         }
-                        { profileShow ?
+                        { profile && profileShow ?
                             <ProfileWorkspace 
                                 user={user} 
                                 profile={profile} 
