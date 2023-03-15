@@ -12,7 +12,7 @@ export const getAllLinks = (user) => {
 }
 
 export const createLink = (user, newLink) => {
-    console.log('this is the user', user)
+    console.log('\n this is the user', user)
     console.log('this is the newLink', newLink)
     axios({
       url: `${apiUrl}/links/`,
@@ -27,9 +27,9 @@ export const createLink = (user, newLink) => {
 
 export const updateLink = (user, updatedLink) => {
     console.log('this is user', user)
-    console.log('this is updated link', updateLink)
+    console.log('this is updated link', updatedLink)
     return axios({
-        url: `${apiUrl}/link/${updateLink.id}`,
+        url: `${apiUrl}/links/${updatedLink.id}`,
         method: 'PATCH',
         headers: {
             // Authorization: `Token token=${user.token}`
@@ -43,7 +43,7 @@ export const deleteLink = (user, deleteLink) => {
     console.log('this is user', user)
     console.log('this is updated link', deleteLink)
     return axios({
-        url: `${apiUrl}/link/${deleteLink.id}`,
+        url: `${apiUrl}/links/${deleteLink.id}`,
         method: 'DELETE',
         headers: {
             // Authorization: `Token token=${user.token}`

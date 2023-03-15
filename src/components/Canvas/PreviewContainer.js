@@ -33,7 +33,7 @@ const PreviewContainer = (props) => {
     console.log(props.links)
 
     // console.log('params:', username )
-    if (!profile || !links) {
+    if (!profile) {
         return (
             <Fragment>
                 <div className="preview__profile-picture"></div>
@@ -45,8 +45,13 @@ const PreviewContainer = (props) => {
     return (
         <Fragment>
             <div className="preview__profile-picture"></div>
-            <div>{ profile.title } </div>
-            <div>{ profile.bio } </div>
+            {profile ? (
+                <>
+                    <div>{ profile.title } </div>
+                    <div>{ profile.bio } </div>
+                </>
+            ) : null }
+            
             { allLinks }
         </Fragment>
     )

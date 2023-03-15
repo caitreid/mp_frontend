@@ -1,38 +1,42 @@
 import React, { Fragment } from "react";
-import UpdateProfileObj from "../Profile/UpdateProfile";
+import UpdateLink from "../Links/UpdateLink";
+
 
 
 const LinksWorkspace = (props) => {
 
-    const { links } = props
+    const { links, onChange, onSubmit, user, msgAlert, profile } = props
 
-    console.log('props in Links Workspace', props)
+    console.log('props in LinksWorkspace', props)
 
     let linksEditor;
 
     if (links) {
 
-        linksEditor = props.links.map((item, id) => {
+        linksEditor = props.links.map((link, id) => {
 
             return (
-                <div key={id}>
-                    <a href={`${ item.url }`}> 
-                        <div className="profile__button">
-                            {item.name}
-                        </div>
-                    </a>
-                </div>
+                <>
+                    <UpdateLink 
+                        user={user}
+                        link={link} 
+                        profile={profile} 
+                        onChange={onChange} 
+                        onSubmit={onSubmit} 
+                        msgAlert={msgAlert} 
+                        key={id}
+                    />
+                </>
             )     
         })
     }
 
     return (
         <Fragment>
-            <div className="col-md-6">
                 <h2>Links Workspace</h2>
 
                 { linksEditor }
-            </div>   
+
         </Fragment>
     )
 }

@@ -154,7 +154,14 @@ const Canvas = (props) => {
                                 msgAlert={msgAlert}
                                 show={profileShow}
                             /> : null }
-                        { linkShow ? <LinksWorkspace links={links} />  : null}
+                        { linkShow ? 
+                            <LinksWorkspace 
+                                user={user}
+                                links={links} 
+                                profile={profile}
+                                msgAlert={msgAlert}
+                                show={linkShow}
+                            />  : null}
                         { appearanceShow ? <AppearanceWorkspace /> : null }
                         { accountShow ? <Settings /> : null}
                     </div>

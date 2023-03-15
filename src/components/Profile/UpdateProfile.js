@@ -6,7 +6,7 @@ import ProfileForm from '../shared/ProfileForm'
 import { updateProfile } from '../../api/profile'
 import { useNavigate } from 'react-router-dom'
 
-const UpdateProfileObj = (props) => {
+const UpdateProfile = (props) => {
     // destructure our props
     const { user, msgAlert } = props
 
@@ -88,4 +88,4 @@ const UpdateProfileObj = (props) => {
     )
 }
 
-export default UpdateProfileObj
+export default UpdateProfile
