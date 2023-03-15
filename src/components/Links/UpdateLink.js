@@ -59,15 +59,7 @@ const UpdateLink = (props) => {
         })
     }
 
-    const onDeleteLink = () => {
-
-        deleteLink(user, link)
-            .then(() => { navigate(`/canvas`)})
-            .then(() => console.log('successful save of link to DB'))
-            .catch(() => {
-                alert('failure')
-            })
-    }
+    
 
     return (
         <>
@@ -76,10 +68,9 @@ const UpdateLink = (props) => {
                 link={link} 
                 handleChange={onChange} 
                 handleSubmit={onSubmit} 
-                deleteLink={onDeleteLink}
                 heading="Update Link"
             />
-            <Button className="my-2 button button--black" onClick={() =>onDeleteLink(user, link)}>Delete</Button>
+            
         </>
     )
 }

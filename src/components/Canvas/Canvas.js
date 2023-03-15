@@ -15,8 +15,9 @@ import { getAllLinks } from "../../api/link";
 const Canvas = (props) => {
 
     const { msgAlert, user } = props
-
     const [error, setError] = useState(false)
+    
+    // fetched from api call
     const [profile, setProfile] = useState(null)
     const [links, setLinks] = useState(null)
 
@@ -33,31 +34,30 @@ const Canvas = (props) => {
         paddingRight: '1rem',
     }
     
-    
-
     useEffect(() => {
 
         getProfile(user)
             .then(res => setProfile(res.data.profile))
-            // .then( res => console.log('res.status', res.status))
+            // .then(setProfileShow(true))
             .catch(err => {
                 
-                console.log('err ------------- \n', err)
+                console.log('err \n', err)
                 setError(true)
 
             })
-    }, [])
+    }, [profileShow])
+
 
     useEffect(() => {
         getAllLinks(user)
             .then(res => setLinks(res.data.links))
             .catch(err => {
                 
-                console.log('err ------------- \n', err)
+                console.log('err \n', err)
                 setError(true)
 
             })
-    }, [])
+    }, [linkShow])
 
     console.log('links---', links)
 
@@ -68,11 +68,12 @@ const Canvas = (props) => {
     const onLinkClick = () => {
 
         setlinkShow(true)
+
         setProfileShow(false)
         setAppearanceShow(false)
         setAccountShow(false)
 
-        console.log('linkshow', linkShow)
+        console.log('profile show', profileShow)
     }
     const onProfileClick = () => {
 
@@ -95,15 +96,16 @@ const Canvas = (props) => {
         setAccountShow(true)
     }
     
+    console.log('profileShow', profileShow)
 
     // if (error) {
     //     return <p>Error</p>
     // }
 
-    if (!profile) {
+    // if (!profile) {
 
-        return <LoadingScreen />
-    }
+    //     return <LoadingScreen />
+    // }
 
 
     return (
@@ -144,8 +146,14 @@ const Canvas = (props) => {
             <div className="canvas container-fluid">
                 <div className="row">
                     <div className="col-md-6">
-                        { !profile ?
-                            <CreateProfile user={user} /> : null
+                        { !profile 
+                            ?
+                            <>
+                                <LoadingScreen/>
+                                <CreateProfile user={user} /> 
+                            </>
+                            : 
+                            null
                         }
                         { profileShow ?
                             <ProfileWorkspace 
@@ -170,7 +178,7 @@ const Canvas = (props) => {
                             <PreviewContainer profile={profile} links={links} msgAlert={msgAlert}/>
 
                         </div>
-                        <a href={`/${ profile.username}`}>moreplease.link/{ profile.username}</a>
+                        { profile ? <a href={`/${ profile.username}`}>moreplease.link/{ profile.username}</a> : null}
                     </div>
                 </div>
                 

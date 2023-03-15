@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import CreateProfile from "../Profile/CreateProfile";
 import UpdateProfile from "../Profile/UpdateProfile";
 
 
@@ -8,17 +9,26 @@ const ProfileWorkspace = (props) => {
 
     console.log('props in Profile Workspace', props)
 
-    return (
-        <Fragment>
-            <UpdateProfile 
-                user={user} 
-                profile={profile} 
-                onChange={onChange} 
-                onSubmit={onSubmit} 
-                msgAlert={msgAlert} 
-            />
-        </Fragment>
-    )
+    if (profile) {
+        return (
+            <Fragment>
+                <UpdateProfile 
+                    user={user} 
+                    profile={profile} 
+                    onChange={onChange} 
+                    onSubmit={onSubmit} 
+                    msgAlert={msgAlert} 
+                />
+            </Fragment>
+        )
+    }
+
+    else {
+        return (
+            <CreateProfile user={user} msgAlert={msgAlert}/>
+        )
+    }
+    
 }
 
 export default ProfileWorkspace

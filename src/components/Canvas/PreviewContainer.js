@@ -51,8 +51,8 @@ const PreviewContainer = (props) => {
                     <div>{ profile.bio } </div>
                 </>
             ) : null }
+            {links ? allLinks : null }
             
-            { allLinks }
         </Fragment>
     )
 }

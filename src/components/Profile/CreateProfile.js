@@ -68,7 +68,7 @@ const CreateProfile = (props) => {
         createProfile(user, profile)
             // first we'll nav to the show page
             // .then(res => { navigate(`/profile/${res.data.profile.id}`)})
-            .then(() => { navigate(`/`)})
+            .then(() => { navigate(`/canvas`)})
             // we'll also send a success message
             .then(() => {
                 msgAlert({

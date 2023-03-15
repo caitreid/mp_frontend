@@ -74,14 +74,6 @@ const App = () => {
 					}  
 				/>
 				<Route
-					path='/profile' 
-					element={ 
-						<RequireAuth user={user}>
-							<ProfileIndex msgAlert={msgAlert} user={user} profile={profile} />
-						</RequireAuth>
-					}  
-				/>
-				<Route
 					path='/canvas' 
 					element={ 
 						<RequireAuth user={user}>
@@ -90,7 +82,7 @@ const App = () => {
 					}  
 				/>
 				<Route
-					path='/profile/create'
+					path='/profile'
 					element={
 					<RequireAuth user={user}>
 						<CreateProfile msgAlert={msgAlert} user={user} />

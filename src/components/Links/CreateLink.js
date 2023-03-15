@@ -15,10 +15,10 @@ const CreateLink = (props) => {
     // console.log('this is navigate', navigate)
 
     const [link, setLink] = useState({
-        bio: '',
+        // id: null,
         owner: user.id,
-        title: '',
-        username: '',
+        name: '',
+        url: '',
         visible: false
     })
 
@@ -60,9 +60,7 @@ const CreateLink = (props) => {
         e.preventDefault()
 
         createLink(user, link)
-            // first we'll nav to the show page
-            // .then(res => { navigate(`/link/${res.data.link.id}`)})
-            .then(() => { navigate(`/`)})
+            // .then(() => { navigate(`/canvas`)})
             // we'll also send a success message
             .then(() => {
                 msgAlert({
@@ -82,12 +80,14 @@ const CreateLink = (props) => {
 
     return (
         <div className='link__create container-fluid'>
-            <LinkForm 
-                link={link}
-                handleChange={onChange}
-                handleSubmit={onSubmit}
-                heading="Create link"
-            />
+            <div className='card my-4'>
+                <LinkForm 
+                    link={link}
+                    handleChange={onChange}
+                    handleSubmit={onSubmit}
+                    heading="Create link"
+                />
+            </div>
         </div>
         
     )

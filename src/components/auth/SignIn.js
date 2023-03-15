@@ -27,11 +27,12 @@ const SignIn = (props) => {
 		signIn(credentials)
 			.then((res) => setUser(res.data.user))
 			.then(() =>
-				msgAlert({
-					heading: 'Sign In Success',
-					message: messages.signInSuccess,
-					variant: 'success',
-				})
+                console.log('sign in success')
+				// msgAlert({
+				// 	heading: 'Sign In Success',
+				// 	message: messages.signInSuccess,
+				// 	variant: 'success',
+				// })
 			)
 			.then(() => navigate('/canvas'))
 			.catch((error) => {

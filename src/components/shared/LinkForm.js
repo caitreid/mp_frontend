@@ -3,12 +3,25 @@
 // but the form will look the same on both Create and Update
 import { Form, Button, Container } from 'react-bootstrap'
 import { deleteLink } from '../../api/link'
+import { useNavigate } from 'react-router-dom'
 
 const LinkForm = (props) => {
     // we need several props for a working, reusable form
     // the object itself(link), some handleChange fn, some handleSubmit fn
     // and in this case, we'll add a custom heading
-    const { link, handleChange, handleSubmit, onDeleteLink } = props
+    const navigate = useNavigate()
+    
+    const { link, handleChange, handleSubmit, user } = props
+
+    const onDeleteLink = () => {
+
+        deleteLink(user, link)
+            .then(() => { navigate(`/canvas`)})
+            .then(() => console.log('successful save of link to DB'))
+            .catch(() => {
+                alert('failure')
+            })
+    }
 
     console.log('LinkForm props: ', props)
 
@@ -18,7 +31,7 @@ const LinkForm = (props) => {
                 <Form.Group className="m-2">
                     <Form.Label className='uppercase'>Name</Form.Label>
                     <Form.Control 
-                        placeholder="Artist / Entrepreneur"
+                        placeholder="Instagram"
                         name="name"
                         id="name"
                         value={ link.name }
@@ -44,6 +57,7 @@ const LinkForm = (props) => {
                     />
                 </Form.Group>
                 <Button className="my-2 button" type="submit">Update</Button>
+                <Button className="my-2 button button--black" onClick={() => onDeleteLink(user, link)}>Delete</Button>
             </Form>
         </Container>
     )
