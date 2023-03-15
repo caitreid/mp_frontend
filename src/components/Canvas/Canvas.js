@@ -1,20 +1,16 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PreviewContainer from "./PreviewContainer";
 import { getProfile } from "../../api/profile";
-import { updateProfile } from '../../api/profile'
-import { Route, Routes } from 'react-router-dom'
 import ProfileWorkspace from "./ProfileWorkspace";
-import { useParams } from 'react-router-dom'
-import Header from "../shared/Header";
 import LoadingScreen from "../shared/LoadingScreen";
 import CreateProfile from "../Profile/CreateProfile";
-import CanvasNav from "./CanvasNav";
 import LinksWorkspace from "./LinksWorkspace";
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import AppearanceWorkspace from "./AppearanceWorkspace";
 import Settings from "./Settings";
+import { getAllLinks } from "../../api/link";
 
 const Canvas = (props) => {
 
@@ -22,6 +18,7 @@ const Canvas = (props) => {
 
     const [error, setError] = useState(false)
     const [profile, setProfile] = useState(null)
+    const [links, setLinks] = useState(null)
 
     const [linkShow, setlinkShow] = useState(false)
     const [profileShow, setProfileShow] = useState(true)
@@ -47,12 +44,22 @@ const Canvas = (props) => {
                 
                 console.log('err ------------- \n', err)
                 setError(true)
-                // msgAlert({
-                //     heading: 'Error getting profile',
-                //     variant: 'danger',
-                // })
+
             })
-    }, [''])
+    }, [])
+
+    useEffect(() => {
+        getAllLinks(user)
+            .then(res => setLinks(res.data.links))
+            .catch(err => {
+                
+                console.log('err ------------- \n', err)
+                setError(true)
+
+            })
+    }, [])
+
+    console.log('links---', links)
 
     console.log('profile:', profile)
     console.log('user', user)
@@ -92,14 +99,15 @@ const Canvas = (props) => {
     // if (error) {
     //     return <p>Error</p>
     // }
+
     if (!profile) {
-        // return <CreateProfile user={user} />
+
         return <LoadingScreen />
     }
 
+
     return (
         <Fragment>
-            {/* <Header user={user}/> */}
             <Navbar expand='md'>
                 <Navbar.Brand>
                     <Link to='/canvas' style={linkStyle}>
@@ -146,16 +154,14 @@ const Canvas = (props) => {
                                 msgAlert={msgAlert}
                                 show={profileShow}
                             /> : null }
-                        { linkShow ? <LinksWorkspace />  : null}
+                        { linkShow ? <LinksWorkspace links={links} />  : null}
                         { appearanceShow ? <AppearanceWorkspace /> : null }
                         { accountShow ? <Settings /> : null}
                     </div>
                     <div className="preview col-md-6">       
                         <div className="preview__phone">
-                            <PreviewContainer profile={profile} msgAlert={msgAlert}/>
+                            <PreviewContainer profile={profile} links={links} msgAlert={msgAlert}/>
 
-                            
-                            {/* <PreviewContainer /> */}
                         </div>
                         <a href={`/${ profile.username}`}>moreplease.link/{ profile.username}</a>
                     </div>

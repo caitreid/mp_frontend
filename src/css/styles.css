@@ -128,6 +128,12 @@ form input[type=checkbox] {
   display: flex;
   align-items: center;
 }
+.profile__button {
+  border: 1px solid grey;
+  border-radius: 30px;
+  padding: 1rem;
+  margin: 0.5rem;
+}
 
 body {
   background-color: rgb(228, 228, 228) !important;

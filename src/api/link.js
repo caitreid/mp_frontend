@@ -1,7 +1,7 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const getLink = (user) => {
+export const getAllLinks = (user) => {
     return axios({
       url: `${apiUrl}/links/`,
       method: 'GET',
@@ -20,7 +20,7 @@ export const createLink = (user, newLink) => {
       headers: {
           Authorization: `Token ${user.token}`
       },
-      data: { link: newlink }
+      data: { link: newLink }
     })
 }
 

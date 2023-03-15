@@ -22,11 +22,11 @@ const Settings = () => {
                         Sign Out
                     </Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link to="/mangos" style={linkStyle}>
                         Mangos
                     </Link>
-                </li>
+                </li> */}
             </ul>            
         </div>
         
